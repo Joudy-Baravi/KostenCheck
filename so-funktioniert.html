@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -9,35 +10,27 @@
 
   <meta
     name="description"
-    content="Von der Qualitätsabweichung zur wirtschaftlichen Bewertung: der Ablauf mit KostenCheck."
+    content="Möglichkeiten prüfen, Kosten erfassen und Alternativen auf einer gemeinsamen Grundlage bewerten."
   >
 
-  <meta name="theme-color" content="#122d29">
-
   <style>
-    /* Farben und Grundgestaltung */
-
-    :root {
-      --dunkel: #122d29;
-      --gruen: #294d40;
-      --akzent: #d6f66f;
-      --hell: #edf3e9;
-      --hintergrund: #f7f9f5;
-      --text: #19372e;
-      --grau: #53675e;
-      --linie: #d9e3d4;
-    }
+    /* Grundgestaltung */
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      overflow-y: scroll;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: var(--text);
-      background: var(--hintergrund);
-      line-height: 1.75;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #122d29;
+      background: white;
     }
 
     h1, h2, h3, p {
@@ -46,6 +39,23 @@
 
     h1, h2, h3 {
       line-height: 1.2;
+    }
+
+    h1 {
+      margin-bottom: 26px;
+      font-size: clamp(40px, 5vw, 64px);
+      letter-spacing: -1.5px;
+    }
+
+    h2 {
+      margin-bottom: 22px;
+      font-size: clamp(28px, 3vw, 36px);
+      letter-spacing: -0.7px;
+    }
+
+    h3 {
+      margin-bottom: 16px;
+      font-size: 23px;
     }
 
     a {
@@ -57,149 +67,128 @@
       outline-offset: 5px;
     }
 
-    .inhalt {
-      width: min(1120px, 86%);
-      margin: auto;
+    .container {
+      width: 86%;
+      max-width: 1180px;
+      margin: 0 auto;
     }
 
     .kleine-ueberschrift {
       margin-bottom: 18px;
       font-size: 12px;
       font-weight: bold;
-      text-transform: uppercase;
       letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    /* Navigation */
+    /* Identischer Kopfbereich auf beiden Seiten */
 
-    header {
+    .seitenkopf {
       background: white;
-      border-bottom: 1px solid var(--linie);
+      border-bottom: 1px solid #d8e3d7;
     }
 
-    .navigation {
-      min-height: 85px;
+    .kopfleiste {
+      min-height: 88px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding-top: 18px;
-      padding-bottom: 18px;
+      gap: 30px;
+      padding: 18px 0;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .seitenlogo {
+      flex-shrink: 0;
       font-size: 26px;
       font-weight: bold;
-      letter-spacing: -1px;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
       text-decoration: none;
+      white-space: nowrap;
     }
 
-    .logo-zeichen {
+    .hauptnavigation {
       display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      padding: 8px;
-      width: 33px;
-      height: 33px;
-      border-radius: 8px;
-      background: var(--dunkel);
-    }
-
-    .logo-zeichen i {
-      width: 4px;
-      display: block;
-      background: var(--akzent);
-    }
-
-    .logo-zeichen i:nth-child(1) { height: 8px; }
-    .logo-zeichen i:nth-child(2) { height: 12px; }
-    .logo-zeichen i:nth-child(3) { height: 18px; }
-
-    nav {
-      display: flex;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 25px;
+      gap: 24px;
     }
 
-    nav a {
+    .hauptnavigation a {
+      display: block;
       padding: 5px 0;
-      font-size: 14px;
-      text-decoration: none;
       border-bottom: 2px solid transparent;
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 1.5;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
-    nav a:hover,
-    nav a[aria-current="page"] {
-      border-bottom-color: var(--dunkel);
+    .hauptnavigation a:hover,
+    .hauptnavigation a[aria-current="page"] {
+      border-bottom-color: #122d29;
     }
 
-    /* Oberer Bereich mit Hintergrundbild */
+    /* Titelbereich mit Hintergrundbild */
 
     .titelbereich {
-      padding: 95px 0 100px;
-      background-color: var(--dunkel);
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
       color: white;
+      background-color: #122d29;
 
       background-image:
         linear-gradient(
           90deg,
-          rgba(18, 45, 41, 0.98) 0%,
-          rgba(18, 45, 41, 0.90) 40%,
-          rgba(18, 45, 41, 0.55) 75%,
-          rgba(18, 45, 41, 0.28) 100%
+          rgba(18, 45, 41, 0.97) 0%,
+          rgba(18, 45, 41, 0.88) 35%,
+          rgba(18, 45, 41, 0.45) 70%,
+          rgba(18, 45, 41, 0.15) 100%
         ),
         url("bilder/ablauf.jpg");
 
-      background-position: center;
       background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
     }
 
-    .titelbereich .kleine-ueberschrift {
-      color: var(--akzent);
-    }
-
-    h1 {
+    .titeltext {
       max-width: 850px;
-      margin-bottom: 25px;
-      font-size: clamp(40px, 5.5vw, 65px);
-      letter-spacing: -2px;
     }
 
-    h1 span {
-      color: var(--akzent);
+    .titelbereich .kleine-ueberschrift,
+    .akzent {
+      color: #d6f66f;
     }
 
     .einleitung {
-      max-width: 660px;
+      max-width: 650px;
       margin-bottom: 0;
       font-size: 18px;
-      color: #dbe8de;
+      color: #e0ebe3;
     }
 
-    /* Kurze Ablaufübersicht */
+    /* Ablaufübersicht ohne Schaltflächen */
 
     .ablaufleiste {
-      background: white;
-      border-bottom: 1px solid var(--linie);
+      background: #edf4ec;
+      border-bottom: 1px solid #d8e3d7;
     }
 
     .ablaufpunkte {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 25px;
-      padding-top: 25px;
-      padding-bottom: 25px;
+      padding: 25px 0;
     }
 
     .ablaufpunkt {
       display: flex;
       align-items: center;
-      gap: 13px;
+      gap: 12px;
       font-size: 15px;
       font-weight: bold;
     }
@@ -211,20 +200,20 @@
       place-items: center;
       flex-shrink: 0;
       border-radius: 50%;
-      background: var(--hell);
+      background: white;
       font-size: 12px;
     }
 
-    /* Drei Schritte */
+    /* Die drei Schritte */
 
     .schritte {
-      padding-top: 75px;
-      padding-bottom: 75px;
+      padding: 75px 0;
+      background: #f7f9f5;
     }
 
     .schritt {
       display: grid;
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 75px 1fr;
       gap: 25px;
       margin-bottom: 30px;
     }
@@ -233,117 +222,93 @@
       margin-bottom: 0;
     }
 
-    .schritt-markierung {
+    .markierung {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .grosse-nummer {
-      width: 64px;
-      height: 64px;
+    .nummer {
+      width: 60px;
+      height: 60px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: var(--dunkel);
-      color: var(--akzent);
-      font-size: 21px;
+      background: #122d29;
+      color: #d6f66f;
+      font-size: 20px;
       font-weight: bold;
     }
 
-    .verbindung {
+    .linie {
       width: 2px;
       flex: 1;
       min-height: 30px;
       margin-top: 18px;
-      background: var(--linie);
+      background: #d8e3d7;
     }
 
-    .schritt-karte {
+    .schrittkarte {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       overflow: hidden;
-      border: 1px solid var(--linie);
-      border-radius: 16px;
       background: white;
-      box-shadow: 0 8px 30px rgba(18, 45, 41, 0.04);
+      border: 1px solid #d8e3d7;
+      border-radius: 14px;
     }
 
-    .schritt-text {
-      padding: 38px;
+    .schritttext {
+      padding: 35px;
     }
 
-    .schritt-text .kleine-ueberschrift {
-      margin-bottom: 15px;
+    .schritttext .kleine-ueberschrift {
       color: #638043;
       font-size: 11px;
     }
 
-    .schritt-text h2 {
-      margin-bottom: 20px;
-      font-size: clamp(27px, 3vw, 34px);
-      letter-spacing: -0.8px;
+    .schritttext h2 {
+      font-size: 31px;
     }
 
-    .schritt-text p:last-child {
+    .schritttext p:last-child {
       margin-bottom: 0;
-      color: var(--grau);
-      font-size: 16px;
+      color: #53675e;
     }
 
     .details {
-      padding: 38px;
-      background: var(--hell);
-      border-left: 1px solid var(--linie);
+      padding: 35px;
+      background: #edf4ec;
+      border-left: 1px solid #d8e3d7;
     }
 
     .details h3 {
-      margin-bottom: 22px;
-      font-size: 18px;
+      font-size: 19px;
     }
 
     .details ul {
       margin: 0;
-      padding: 0;
-      list-style: none;
+      padding-left: 20px;
     }
 
     .details li {
-      position: relative;
-      padding: 12px 0 12px 22px;
-      border-bottom: 1px solid #d4dfcd;
-      color: var(--grau);
+      padding: 7px 0;
+      color: #53675e;
       font-size: 15px;
     }
 
-    .details li:last-child {
-      border-bottom: 0;
-    }
+    /* Letzter Schritt als dunkle Karte */
 
-    .details li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 22px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #779b4d;
-    }
-
-    /* Dunkle Gestaltung beim letzten Schritt */
-
-    .abschluss .schritt-karte {
-      background: var(--dunkel);
-      border-color: var(--dunkel);
+    .abschluss .schrittkarte {
+      background: #122d29;
+      border-color: #122d29;
       color: white;
     }
 
-    .abschluss .schritt-text .kleine-ueberschrift {
-      color: var(--akzent);
+    .abschluss .schritttext .kleine-ueberschrift {
+      color: #d6f66f;
     }
 
-    .abschluss .schritt-text p:last-child {
+    .abschluss .schritttext p:last-child {
       color: #d0dfd4;
     }
 
@@ -354,50 +319,43 @@
 
     .abschluss .details li {
       color: #d0dfd4;
-      border-color: #426050;
-    }
-
-    .abschluss .details li::before {
-      background: var(--akzent);
     }
 
     /* Ergänzendes Beispiel */
 
     .beispielbereich {
-      padding: 0 0 75px;
+      padding: 60px 0;
     }
 
     .beispiel {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 45px;
-      padding: 38px;
+      gap: 40px;
+      padding: 35px;
+      border-left: 4px solid #8cae58;
+      border-radius: 0 12px 12px 0;
       background: #e8efdf;
-      border-radius: 14px;
-      border-left: 5px solid #8eae5b;
     }
 
     .beispiel h2 {
       margin-bottom: 0;
       font-size: 28px;
-      letter-spacing: -0.5px;
     }
 
     .beispiel p:last-child {
-      margin: 0;
+      margin-bottom: 0;
       color: #40583f;
-      font-size: 16px;
     }
 
-    /* Footer ohne Namen */
+    /* Identischer Footer ohne Namen */
 
     footer {
       padding: 28px 0;
+      border-top: 1px solid #d8e3d7;
       background: white;
-      border-top: 1px solid var(--linie);
     }
 
-    .footer-inhalt {
+    .fusszeile {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -405,9 +363,9 @@
       font-size: 14px;
     }
 
-    .footer-inhalt p {
+    .fusszeile p {
       margin: 0;
-      color: var(--grau);
+      color: #53675e;
     }
 
     /* Tablet */
@@ -418,45 +376,55 @@
         gap: 15px;
       }
 
-      .grosse-nummer {
+      .nummer {
         width: 50px;
         height: 50px;
         font-size: 18px;
       }
 
-      .schritt-karte {
+      .schrittkarte,
+      .beispiel {
         grid-template-columns: 1fr;
       }
 
       .details {
         border-left: 0;
-        border-top: 1px solid var(--linie);
+        border-top: 1px solid #d8e3d7;
       }
 
       .beispiel {
-        grid-template-columns: 1fr;
         gap: 20px;
       }
     }
 
-    /* Handy */
+    /* Einheitliche Handyansicht */
 
-    @media (max-width: 650px) {
-      .navigation {
-        align-items: flex-start;
+    @media (max-width: 700px) {
+      .kopfleiste {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 0;
       }
 
-      nav {
+      .hauptnavigation {
         gap: 16px;
       }
 
-      nav a {
-        font-size: 13px;
+      .hauptnavigation a {
+        font-size: 14px;
       }
 
       .titelbereich {
-        padding: 65px 0;
+        min-height: 500px;
+        padding: 60px 0;
+
+        background-image:
+          linear-gradient(
+            rgba(18, 45, 41, 0.88),
+            rgba(18, 45, 41, 0.88)
+          ),
+          url("bilder/ablauf.jpg");
       }
 
       .einleitung {
@@ -469,37 +437,35 @@
       }
 
       .schritte {
-        padding-top: 45px;
-        padding-bottom: 45px;
+        padding: 50px 0;
       }
 
       .schritt {
         grid-template-columns: 1fr;
-        gap: 15px;
       }
 
-      .schritt-markierung {
+      .markierung {
         align-items: flex-start;
       }
 
-      .verbindung {
+      .linie {
         display: none;
       }
 
-      .schritt-text,
+      .schritttext,
       .details {
         padding: 26px;
       }
 
       .beispielbereich {
-        padding-bottom: 45px;
+        padding: 45px 0;
       }
 
       .beispiel {
-        padding: 27px;
+        padding: 26px;
       }
 
-      .footer-inhalt {
+      .fusszeile {
         flex-direction: column;
       }
     }
@@ -508,25 +474,29 @@
 
 <body>
 
-  <!-- Navigation -->
+  <header class="seitenkopf">
+    <div class="container kopfleiste">
 
-  <header>
-    <div class="inhalt navigation">
-
-      <a class="logo" href="index.html">
-        
+      <a class="seitenlogo" href="index.html">
         KostenCheck
       </a>
 
-      <nav aria-label="Hauptnavigation">
-        <a href="index.html">Startseite</a>
+      <nav class="hauptnavigation" aria-label="Hauptnavigation">
+        <a href="index.html">
+          Startseite
+        </a>
 
         <a href="so-funktioniert.html" aria-current="page">
           So funktioniert’s
         </a>
 
-        <a href="video.html">Pitch-Video</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a href="video.html">
+          Pitch-Video
+        </a>
+
+        <a href="kontakt.html">
+          Kontakt
+        </a>
       </nav>
 
     </div>
@@ -534,34 +504,34 @@
 
   <main>
 
-    <!-- Einführung mit Hintergrundbild -->
-
     <section class="titelbereich">
-      <div class="inhalt">
+      <div class="container">
+        <div class="titeltext">
 
-        <p class="kleine-ueberschrift">
-          So funktioniert’s
-        </p>
+          <p class="kleine-ueberschrift">
+            So funktioniert’s
+          </p>
 
-        <h1>
-          Schritt für Schritt<br>
-          <span>zur passenden Entscheidung.</span>
-        </h1>
+          <h1>
+            Schritt für Schritt<br>
+            <span class="akzent">
+              zur passenden Entscheidung.
+            </span>
+          </h1>
 
-        <p class="einleitung">
-          Ein aussagekräftiger Vergleich beginnt mit einer
-          klaren Ausgangslage. Entscheidend ist,
-          welche Informationen vorliegen und
-          wie die Ergebnisse bewertet werden.
-        </p>
+          <p class="einleitung">
+            Ein aussagekräftiger Vergleich beginnt mit einer
+            klaren Ausgangslage. Entscheidend ist,
+            welche Informationen vorliegen und
+            wie die Ergebnisse bewertet werden.
+          </p>
 
+        </div>
       </div>
     </section>
 
-    <!-- Übersicht ohne Schaltflächen -->
-
     <div class="ablaufleiste">
-      <div class="inhalt ablaufpunkte">
+      <div class="container ablaufpunkte">
 
         <div class="ablaufpunkt">
           <span class="kleine-nummer">01</span>
@@ -581,155 +551,147 @@
       </div>
     </div>
 
-    <!-- Ausführlicher Ablauf -->
+    <section class="schritte">
+      <div class="container">
 
-    <section class="inhalt schritte">
-
-      <!-- Schritt 1 -->
-
-      <article class="schritt">
-        <div class="schritt-markierung" aria-hidden="true">
-          <span class="grosse-nummer">01</span>
-          <span class="verbindung"></span>
-        </div>
-
-        <div class="schritt-karte">
-          <div class="schritt-text">
-            <p class="kleine-ueberschrift">
-              Die fachliche Grundlage
-            </p>
-
-            <h2>Möglichkeiten prüfen.</h2>
-
-            <p>
-              Ihre Fachpersonen beurteilen die Qualitätsabweichung
-              und legen fest, welche Maßnahmen die technischen
-              Voraussetzungen und Qualitätsanforderungen erfüllen.
-              Ungeeignete Möglichkeiten werden ausgeschlossen.
-            </p>
+        <article class="schritt">
+          <div class="markierung" aria-hidden="true">
+            <span class="nummer">01</span>
+            <span class="linie"></span>
           </div>
 
-          <div class="details">
-            <h3>Fragen zum konkreten Fall</h3>
+          <div class="schrittkarte">
+            <div class="schritttext">
+              <p class="kleine-ueberschrift">
+                Die fachliche Grundlage
+              </p>
 
-            <ul>
-              <li>Welche Abweichung liegt vor?</li>
-              <li>Wie viele Teile sind betroffen?</li>
-              <li>Kann der Fehler behoben werden?</li>
-              <li>Bis wann werden einwandfreie Produkte benötigt?</li>
-            </ul>
+              <h2>Möglichkeiten prüfen.</h2>
+
+              <p>
+                Ihre Fachpersonen beurteilen die Qualitätsabweichung
+                und legen fest, welche Maßnahmen die technischen
+                Voraussetzungen und Qualitätsanforderungen erfüllen.
+                Ungeeignete Möglichkeiten werden ausgeschlossen.
+              </p>
+            </div>
+
+            <div class="details">
+              <h3>Fragen zum konkreten Fall</h3>
+
+              <ul>
+                <li>Welche Abweichung liegt vor?</li>
+                <li>Wie viele Teile sind betroffen?</li>
+                <li>Kann der Fehler behoben werden?</li>
+                <li>Bis wann werden einwandfreie Produkte benötigt?</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Schritt 2 -->
-
-      <article class="schritt">
-        <div class="schritt-markierung" aria-hidden="true">
-          <span class="grosse-nummer">02</span>
-          <span class="verbindung"></span>
-        </div>
-
-        <div class="schritt-karte">
-          <div class="schritt-text">
-            <p class="kleine-ueberschrift">
-              Den Aufwand bestimmen
-            </p>
-
-            <h2>Kosten erfassen.</h2>
-
-            <p>
-              Für jede geeignete Alternative werden die
-              zusätzlich benötigten Ressourcen ermittelt.
-              Bekannte Werte und Schätzungen bleiben
-              unterscheidbar, damit die spätere Bewertung
-              nachvollziehbar ist.
-            </p>
+        <article class="schritt">
+          <div class="markierung" aria-hidden="true">
+            <span class="nummer">02</span>
+            <span class="linie"></span>
           </div>
 
-          <div class="details">
-            <h3>Relevante Angaben</h3>
+          <div class="schrittkarte">
+            <div class="schritttext">
+              <p class="kleine-ueberschrift">
+                Den Aufwand bestimmen
+              </p>
 
-            <ul>
-              <li>Arbeitszeit und zugehörige Kostensätze</li>
-              <li>Material, Ersatzteile und Zukauf</li>
-              <li>Rüstvorgänge und erneute Prüfungen</li>
-              <li>Entsorgungs- oder Verwertungsaufwand</li>
-              <li>Bewertbare Folgen einer Lieferverzögerung</li>
-            </ul>
+              <h2>Kosten erfassen.</h2>
+
+              <p>
+                Für jede geeignete Alternative werden
+                die zusätzlich benötigten Ressourcen ermittelt.
+                Bekannte Werte und Schätzungen bleiben
+                unterscheidbar, damit die spätere Bewertung
+                nachvollziehbar ist.
+              </p>
+            </div>
+
+            <div class="details">
+              <h3>Relevante Angaben</h3>
+
+              <ul>
+                <li>Arbeitszeit und zugehörige Kostensätze</li>
+                <li>Material, Ersatzteile und Zukauf</li>
+                <li>Rüstvorgänge und erneute Prüfungen</li>
+                <li>Entsorgungs- oder Verwertungsaufwand</li>
+                <li>Bewertbare Folgen einer Lieferverzögerung</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Schritt 3 -->
-
-      <article class="schritt abschluss">
-        <div class="schritt-markierung" aria-hidden="true">
-          <span class="grosse-nummer">03</span>
-        </div>
-
-        <div class="schritt-karte">
-          <div class="schritt-text">
-            <p class="kleine-ueberschrift">
-              Das Ergebnis einordnen
-            </p>
-
-            <h2>Alternativen vergleichen.</h2>
-
-            <p>
-              KostenCheck stellt die wirtschaftlichen Auswirkungen
-              gegenüber. Neben der Gesamtsumme werden Annahmen
-              und Unsicherheiten betrachtet.
-              Die abschließende Auswahl treffen
-              die verantwortlichen Personen im Unternehmen.
-            </p>
+        <article class="schritt abschluss">
+          <div class="markierung" aria-hidden="true">
+            <span class="nummer">03</span>
           </div>
 
-          <div class="details">
-            <h3>Worauf es ankommt</h3>
+          <div class="schrittkarte">
+            <div class="schritttext">
+              <p class="kleine-ueberschrift">
+                Das Ergebnis einordnen
+              </p>
 
-            <ul>
-              <li>Alle Wege erfüllen denselben Bedarf.</li>
-              <li>Relevante zusätzliche Kosten sind einbezogen.</li>
-              <li>Die verwendeten Angaben sind nachvollziehbar.</li>
-              <li>Offene Fragen werden vor der Auswahl geklärt.</li>
-            </ul>
+              <h2>Alternativen vergleichen.</h2>
+
+              <p>
+                KostenCheck stellt die wirtschaftlichen Auswirkungen
+                gegenüber. Neben der Gesamtsumme werden
+                Annahmen und Unsicherheiten betrachtet.
+                Die abschließende Auswahl treffen
+                die verantwortlichen Personen im Unternehmen.
+              </p>
+            </div>
+
+            <div class="details">
+              <h3>Worauf es ankommt</h3>
+
+              <ul>
+                <li>Alle Wege erfüllen denselben Bedarf.</li>
+                <li>Relevante zusätzliche Kosten sind einbezogen.</li>
+                <li>Die verwendeten Angaben sind nachvollziehbar.</li>
+                <li>Offene Fragen werden vor der Auswahl geklärt.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
+      </div>
     </section>
 
-    <!-- Ergänzendes Beispiel -->
+    <section class="beispielbereich">
+      <div class="container">
+        <div class="beispiel">
 
-    <section class="inhalt beispielbereich">
-      <div class="beispiel">
+          <div>
+            <p class="kleine-ueberschrift">
+              Ein wichtiger Unterschied
+            </p>
 
-        <div>
-          <p class="kleine-ueberschrift">
-            Ein wichtiger Unterschied
+            <h2>Auch der Ersatz gehört dazu.</h2>
+          </div>
+
+          <p>
+            Benötigt ein Auftrag weiterhin 100 einwandfreie
+            Gehäuse, reicht das Entsorgen der fehlerhaften
+            Teile nicht aus. Die notwendige Ersatzbeschaffung
+            muss ebenfalls berücksichtigt werden,
+            damit alle verglichenen Wege dasselbe Ziel erfüllen.
           </p>
 
-          <h2>Auch der Ersatz gehört dazu.</h2>
         </div>
-
-        <p>
-          Benötigt ein Auftrag weiterhin 100 einwandfreie
-          Gehäuse, reicht das Entsorgen der fehlerhaften
-          Teile nicht aus. Die notwendige Ersatzbeschaffung
-          muss ebenfalls berücksichtigt werden,
-          damit alle verglichenen Wege dasselbe Ziel erfüllen.
-        </p>
-
       </div>
     </section>
 
   </main>
 
-  <!-- Footer ohne persönliche Namen -->
-
   <footer>
-    <div class="inhalt footer-inhalt">
+    <div class="container fusszeile">
       <strong>KostenCheck</strong>
       <p>Klar vergleichen. Fundiert entscheiden.</p>
     </div>
