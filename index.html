@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>KostenCheck – Startseite</title>
+
+  <meta
+    name="description"
+    content="KostenCheck unterstützt Produktionsunternehmen beim Kostenvergleich von Nacharbeit, Neuproduktion und Entsorgung."
+  >
+
+  <style>
+    /* Allgemeines Design */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #122d29;
+      background: white;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 23px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #86a930;
+      outline-offset: 5px;
+    }
+
+    /* Navigation */
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid #d8e3d7;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    /* Seitenbereiche */
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .startbereich {
+      background: #122d29;
+      color: white;
+    }
+
+    .start-inhalt {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .start-text {
+      flex: 1 1 450px;
+    }
+
+    .kleine-ueberschrift {
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .startbereich .kleine-ueberschrift {
+      color: #d6f66f;
+    }
+
+    .akzent {
+      color: #d6f66f;
+    }
+
+    .beschreibung {
+      max-width: 650px;
+      font-size: 18px;
+    }
+
+    .startbereich .beschreibung {
+      color: #d6e4da;
+    }
+
+    .zielgruppe {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #bfd2c5;
+    }
+
+    /* Schaltflächen */
+
+    .button {
+      display: inline-block;
+      padding: 13px 21px;
+      margin: 12px 10px 0 0;
+      border-radius: 6px;
+      background: #d6f66f;
+      color: #122d29;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .button:hover {
+      background: #e4ff99;
+    }
+
+    .button-dunkel {
+      background: #122d29;
+      color: white;
+    }
+
+    .button-dunkel:hover {
+      background: #24483e;
+    }
+
+    /* Übersicht rechts im Startbereich */
+
+    .uebersicht {
+      flex: 1 1 300px;
+      background: #24483e;
+      border: 1px solid #526f5e;
+      border-radius: 15px;
+      padding: 30px;
+    }
+
+    .uebersicht h3 {
+      margin-top: 0;
+    }
+
+    .alternative {
+      padding: 18px 0;
+      border-bottom: 1px solid #526f5e;
+    }
+
+    .alternative strong {
+      display: block;
+      font-size: 19px;
+    }
+
+    .alternative span {
+      color: #c8dacd;
+      font-size: 14px;
+    }
+
+    .uebersicht-hinweis {
+      margin: 22px 0 0;
+      font-size: 14px;
+      color: #d6e4da;
+    }
+
+    /* Informationsbereiche */
+
+    .hell {
+      background: #edf4ec;
+    }
+
+    .karten {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .karte {
+      flex: 1 1 250px;
+      padding: 28px;
+      border: 1px solid #d8e3d7;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .karte h3 {
+      margin-top: 0;
+    }
+
+    .karte p {
+      margin-bottom: 0;
+      color: #53675e;
+    }
+
+    .kontaktbereich {
+      background: #122d29;
+      color: white;
+    }
+
+    .kontaktbereich p {
+      max-width: 650px;
+      color: #d6e4da;
+    }
+
+    /* Fußzeile */
+
+    footer {
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-top: 1px solid #d8e3d7;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Darstellung auf dem Handy */
+
+    @media (max-width: 650px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 50px 7%;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      .start-inhalt {
+        gap: 30px;
+      }
+
+      .start-text,
+      .uebersicht,
+      .karte {
+        flex-basis: 100%;
+      }
+
+      .beschreibung {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation zu den einzelnen Seiten -->
+
+  <header>
+    <a class="logo" href="index.html">
+      KostenCheck
+    </a>
+
+    <nav aria-label="Hauptnavigation">
+      <a href="index.html" aria-current="page">
+        Startseite
+      </a>
+
+      <a href="so-funktioniert.html">
+        So funktioniert’s
+      </a>
+
+      <a href="video.html">
+        Pitch-Video
+      </a>
+
+      <a href="kontakt.html">
+        Kontakt
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Begrüßung und Geschäftsidee -->
+
+    <section class="startbereich">
+      <div class="start-inhalt">
+
+        <div class="start-text">
+          <p class="kleine-ueberschrift">
+            Kostenvergleich für die Produktion
+          </p>
+
+          <h1>
+            Ein Fehler.<br>
+            Drei Möglichkeiten.<br>
+            <span class="akzent">Eine klare Basis.</span>
+          </h1>
+
+          <p class="beschreibung">
+            Nacharbeiten, neu produzieren oder entsorgen?
+            KostenCheck soll Unternehmen helfen,
+            die Kosten ihrer Handlungsalternativen
+            übersichtlich zu vergleichen.
+          </p>
+
+          <a class="button" href="so-funktioniert.html">
+            So funktioniert KostenCheck
+          </a>
+
+          <a class="button" href="video.html">
+            Pitch-Video ansehen
+          </a>
+
+          <p class="zielgruppe">
+            Für kleine und mittlere Produktionsunternehmen.
+          </p>
+        </div>
+
+        <div class="uebersicht">
+          <h3>Welche Möglichkeit kommt infrage?</h3>
+
+          <div class="alternative">
+            <strong>Nacharbeit</strong>
+            <span>Bestehende Produkte korrigieren.</span>
+          </div>
+
+          <div class="alternative">
+            <strong>Neuproduktion</strong>
+            <span>Einwandfreie Ersatzprodukte herstellen.</span>
+          </div>
+
+          <div class="alternative">
+            <strong>Entsorgung</strong>
+            <span>Nicht verwendbare Produkte aussortieren.</span>
+          </div>
+
+          <p class="uebersicht-hinweis">
+            Zuerst prüfen Fachpersonen die technische und
+            qualitative Zulässigkeit. Danach folgt
+            der wirtschaftliche Vergleich.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Kurze Erklärung -->
+
+    <section>
+      <p class="kleine-ueberschrift">Die Idee</p>
+
+      <h2>
+        Ein Produktfehler ist auch eine Kostenentscheidung.
+      </h2>
+
+      <p class="beschreibung">
+        Fehlerhafte Produkte können zusätzlichen Arbeitsaufwand,
+        Materialkosten und Lieferverzögerungen verursachen.
+        KostenCheck soll die wirtschaftlichen Auswirkungen
+        der zulässigen Möglichkeiten gegenüberstellen.
+      </p>
+
+      <p class="beschreibung">
+        So erhalten Produktion, Qualitätsmanagement und Controlling
+        eine gemeinsame Grundlage für ihre Bewertung.
+        Die Entscheidung bleibt bei den verantwortlichen Fachpersonen.
+      </p>
+    </section>
+
+    <!-- Vorteile -->
+
+    <section class="hell">
+      <p class="kleine-ueberschrift">Der Mehrwert</p>
+
+      <h2>Weniger Unklarheit. Mehr Überblick.</h2>
+
+      <div class="karten">
+
+        <article class="karte">
+          <h3>Kosten zusammenführen</h3>
+
+          <p>
+            Arbeitszeit, Material und mögliche Folgekosten
+            gemeinsam betrachten.
+          </p>
+        </article>
+
+        <article class="karte">
+          <h3>Alternativen verstehen</h3>
+
+          <p>
+            Wirtschaftliche Unterschiede übersichtlich
+            gegenüberstellen.
+          </p>
+        </article>
+
+        <article class="karte">
+          <h3>Fundiert entscheiden</h3>
+
+          <p>
+            Entscheidungen auf einer nachvollziehbaren
+            Informationsgrundlage vorbereiten.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Weiterleitung zur Ablaufseite -->
+
+    <section>
+      <p class="kleine-ueberschrift">Mehr erfahren</p>
+
+      <h2>Wie funktioniert der Vergleich?</h2>
+
+      <p class="beschreibung">
+        Möglichkeiten prüfen, Kosten erfassen und Alternativen
+        vergleichen: Auf unserer Ablaufseite erfahren Sie,
+        welche Schritte und Angaben wichtig sind.
+      </p>
+
+      <a
+        class="button button-dunkel"
+        href="so-funktioniert.html"
+      >
+        Den Ablauf kennenlernen
+      </a>
+    </section>
+
+    <!-- Weiterleitung zur Kontaktseite -->
+
+    <section class="kontaktbereich">
+      <h2>Fragen zu KostenCheck?</h2>
+
+      <p>
+        Joudy Baravi und Jodi Esmaeil sind Ihre Ansprechpartnerinnen.
+        Schreiben Sie uns eine Nachricht oder vereinbaren Sie
+        einen Termin.
+      </p>
+
+      <a class="button" href="kontakt.html">
+        Zur Kontaktseite
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>KostenCheck</strong>
+
+    <p>Klar vergleichen. Fundiert entscheiden.</p>
+
+    <p>Joudy Baravi & Jodi Esmaeil</p>
+  </footer>
+
+</body>
+</html>
