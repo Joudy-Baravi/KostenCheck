@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,12 @@
 
   <meta
     name="description"
-    content="KostenCheck unterstützt Produktionsunternehmen beim Kostenvergleich von Nacharbeit, Neuproduktion und Entsorgung."
+    content="KostenCheck unterstützt Produktionsunternehmen beim Vergleich von Nacharbeit, Neuproduktion und Entsorgung."
   >
 
   <style>
     /* Allgemeines Design */
+
     * {
       box-sizing: border-box;
     }
@@ -30,18 +32,19 @@
     }
 
     h1 {
+      margin: 20px 0;
       font-size: clamp(40px, 5.5vw, 68px);
       letter-spacing: -1.5px;
-      margin: 22px 0;
     }
 
     h2 {
-      font-size: 34px;
       margin: 0 0 22px;
+      font-size: clamp(28px, 3.5vw, 36px);
     }
 
     h3 {
-      font-size: 23px;
+      margin-top: 0;
+      font-size: 25px;
     }
 
     a {
@@ -53,16 +56,29 @@
       outline-offset: 5px;
     }
 
+    section {
+      padding: 75px 7%;
+    }
+
+    .kleine-ueberschrift {
+      margin: 0 0 18px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
     /* Navigation */
+
     header {
       padding: 20px 7%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 20px;
-      border-bottom: 1px solid #d8e3d7;
       background: white;
+      border-bottom: 1px solid #d8e3d7;
     }
 
     .logo {
@@ -78,8 +94,8 @@
     }
 
     nav a {
-      text-decoration: none;
       font-size: 15px;
+      text-decoration: none;
     }
 
     nav a:hover,
@@ -88,61 +104,37 @@
       text-underline-offset: 6px;
     }
 
-    /* Seitenbereiche */
-    section {
-      padding: 75px 7%;
-    }
+    /* Startseite mit deinem eigenen Hintergrundbild */
 
-    .kleine-ueberschrift {
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .beschreibung {
-      max-width: 780px;
-      font-size: 18px;
-    }
-
-    /* Startbereich mit eingebettetem Bild */
     .startbereich {
-      position: relative;
-      min-height: 640px;
+      min-height: 660px;
       display: flex;
       align-items: center;
-      overflow: hidden;
-      background: #122d29;
       color: white;
-    }
+      background-color: #122d29;
 
-    .hintergrundbild {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 56%;
-      object-fit: cover;
-      object-position: center;
-    }
+      /*
+        HIER DEIN BILD EINSETZEN:
+        Das Bild liegt im Ordner "bilder".
+        Ändere bei Bedarf den Namen "startseite.jpg".
+      */
 
-    .startbereich::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        #122d29 0%,
-        #122d29 33%,
-        rgba(18, 45, 41, 0.94) 47%,
-        rgba(18, 45, 41, 0.55) 70%,
-        rgba(18, 45, 41, 0.12) 100%
-      );
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(18, 45, 41, 0.97) 0%,
+          rgba(18, 45, 41, 0.88) 35%,
+          rgba(18, 45, 41, 0.45) 65%,
+          rgba(18, 45, 41, 0.15) 100%
+        ),
+        url("bilder/startseite.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .start-text {
-      position: relative;
-      z-index: 1;
       max-width: 650px;
     }
 
@@ -151,18 +143,20 @@
       color: #d6f66f;
     }
 
-    .startbereich .beschreibung {
-      max-width: 560px;
+    .startbeschreibung {
+      max-width: 550px;
+      font-size: 18px;
       color: #e0ebe3;
     }
 
     .zielgruppe {
       margin-top: 28px;
       font-size: 14px;
-      color: #c7dacd;
+      color: #d1e0d5;
     }
 
     /* Schaltflächen */
+
     .button {
       display: inline-block;
       padding: 13px 21px;
@@ -171,8 +165,8 @@
       background: #d6f66f;
       color: #122d29;
       text-decoration: none;
-      font-weight: bold;
       font-size: 15px;
+      font-weight: bold;
     }
 
     .button:hover {
@@ -180,7 +174,7 @@
     }
 
     .button-rahmen {
-      border: 1px solid #92ad99;
+      border: 1px solid #a5bda9;
       background: #122d29;
       color: white;
     }
@@ -189,20 +183,134 @@
       background: #24483e;
     }
 
+    /* Bereich mit den drei Möglichkeiten */
+
+    .alternativen-bereich {
+      background: #f5f7f3;
+    }
+
+    .bereich-einleitung {
+      max-width: 760px;
+      font-size: 17px;
+      color: #53675e;
+    }
+
+    .alternativen {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .alternative {
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      border: 1px solid #d5e0d2;
+      border-radius: 14px;
+      background: white;
+    }
+
+    .alternative-label {
+      align-self: flex-start;
+      padding: 5px 12px;
+      margin-bottom: 28px;
+      border-radius: 20px;
+      background: #edf4e6;
+      color: #36573e;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .alternative p {
+      margin: 0 0 25px;
+      color: #53675e;
+    }
+
+    .alternative-fokus {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #d8e3d7;
+      font-size: 15px;
+    }
+
+    .alternative-fokus span {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .neuproduktion {
+      background: #e8f0e2;
+    }
+
+    .neuproduktion .alternative-label {
+      background: white;
+    }
+
+    .entsorgung {
+      background: #122d29;
+      color: white;
+      border-color: #122d29;
+    }
+
+    .entsorgung .alternative-label {
+      background: #d6f66f;
+      color: #122d29;
+    }
+
+    .entsorgung p {
+      color: #d0e0d3;
+    }
+
+    .entsorgung .alternative-fokus {
+      border-color: #486455;
+    }
+
+    .vergleich-hinweis {
+      margin: 28px 0 0;
+      padding: 20px 24px;
+      background: #e9efe3;
+      border-left: 4px solid #8cae58;
+      border-radius: 0 8px 8px 0;
+      font-size: 15px;
+    }
+
+    /* Geschäftsidee */
+
+    .idee-bereich {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .idee-text {
+      font-size: 17px;
+      color: #53675e;
+    }
+
+    .idee-text p:first-child {
+      margin-top: 0;
+    }
+
     /* Vorteile */
+
     .hell {
       background: #edf4ec;
     }
 
     .karten {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 25px;
       margin-top: 32px;
     }
 
     .karte {
-      flex: 1 1 250px;
       padding: 28px;
       background: white;
       border: 1px solid #d8e3d7;
@@ -210,7 +318,7 @@
     }
 
     .karte h3 {
-      margin-top: 0;
+      font-size: 22px;
     }
 
     .karte p {
@@ -219,6 +327,7 @@
     }
 
     /* Kontaktverweis */
+
     .kontaktbereich {
       background: #122d29;
       color: white;
@@ -228,18 +337,21 @@
       color: #d6f66f;
     }
 
-    .kontaktbereich .beschreibung {
+    .kontaktbereich p:not(.kleine-ueberschrift) {
       max-width: 650px;
+      font-size: 18px;
       color: #d6e4da;
     }
 
-    /* Fußzeile */
+    /* Footer ohne persönliche Namen */
+
     footer {
       padding: 25px 7%;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 15px;
+      background: white;
       border-top: 1px solid #d8e3d7;
       font-size: 14px;
     }
@@ -248,11 +360,24 @@
       margin: 0;
     }
 
-    /* Handyansicht */
+    /* Tablet und Handy */
+
+    @media (max-width: 900px) {
+      .alternativen,
+      .karten,
+      .idee-bereich {
+        grid-template-columns: 1fr;
+      }
+
+      .idee-bereich {
+        gap: 15px;
+      }
+    }
+
     @media (max-width: 650px) {
       header {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
 
       nav {
@@ -267,28 +392,22 @@
         padding: 50px 7%;
       }
 
-      h2 {
-        font-size: 29px;
+      .startbereich {
+        min-height: 610px;
       }
 
-      .beschreibung {
+      .start-text {
+        padding: 22px;
+        background: rgba(18, 45, 41, 0.72);
+        border-radius: 10px;
+      }
+
+      .startbeschreibung {
         font-size: 17px;
       }
 
-      .startbereich {
-        min-height: 600px;
-      }
-
-      .hintergrundbild {
-        width: 100%;
-      }
-
-      .startbereich::after {
-        background: rgba(18, 45, 41, 0.87);
-      }
-
-      .karte {
-        flex-basis: 100%;
+      .alternative {
+        padding: 26px;
       }
 
       footer {
@@ -300,29 +419,39 @@
 
 <body>
 
+  <!-- Navigation -->
+
   <header>
-    <a class="logo" href="index.html">KostenCheck</a>
+    <a class="logo" href="index.html">
+      KostenCheck
+    </a>
 
     <nav aria-label="Hauptnavigation">
-      <a href="index.html" aria-current="page">Startseite</a>
-      <a href="so-funktioniert.html">So funktioniert’s</a>
-      <a href="video.html">Pitch-Video</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="index.html" aria-current="page">
+        Startseite
+      </a>
+
+      <a href="so-funktioniert.html">
+        So funktioniert’s
+      </a>
+
+      <a href="video.html">
+        Pitch-Video
+      </a>
+
+      <a href="kontakt.html">
+        Kontakt
+      </a>
     </nav>
   </header>
 
   <main>
 
+    <!-- Dein Bild erscheint hier als Hintergrund -->
+
     <section class="startbereich">
-
-      <!-- Das Bild aus eurem Video ist direkt hier gespeichert. -->
-      <img
-        class="hintergrundbild"
-        alt=""
-        src="data:image/webp;base64,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"
-      >
-
       <div class="start-text">
+
         <p class="kleine-ueberschrift">
           Kostenvergleich für die Produktion
         </p>
@@ -333,7 +462,7 @@
           <span class="akzent">Eine klare Basis.</span>
         </h1>
 
-        <p class="beschreibung">
+        <p class="startbeschreibung">
           Nacharbeiten, neu produzieren oder entsorgen?
           KostenCheck soll Unternehmen helfen,
           die wirtschaftlichen Folgen ihrer
@@ -351,42 +480,135 @@
         <p class="zielgruppe">
           Für kleine und mittlere Produktionsunternehmen.
         </p>
+
       </div>
     </section>
 
-    <section>
+    <!-- Drei Handlungsalternativen -->
+
+    <section class="alternativen-bereich">
       <p class="kleine-ueberschrift">
-        Die Idee hinter KostenCheck
+        Die Handlungsalternativen
       </p>
 
-      <h2>
-        Ein Produktfehler ist auch eine Kostenentscheidung.
-      </h2>
+      <h2>Welche Möglichkeit kommt infrage?</h2>
 
-      <p class="beschreibung">
-        Bei Qualitätsabweichungen zählt mehr als der Materialpreis.
-        Zusätzliche Arbeitszeit, neue Produktionsschritte
-        oder Lieferverzögerungen können die Gesamtkosten verändern.
+      <p class="bereich-einleitung">
+        Je nach Qualitätsabweichung ergeben sich unterschiedliche
+        Wege. Ihre Eignung hängt von den Anforderungen,
+        dem benötigten Aufwand und den Folgen für den Betrieb ab.
       </p>
 
-      <p class="beschreibung">
-        Unsere Softwareidee richtet sich an Unternehmen,
-        die solche Entscheidungen auf einer gemeinsamen
-        Informationsgrundlage treffen möchten.
-        Produktion, Qualitätsmanagement und Controlling
-        sollen die wirtschaftlichen Auswirkungen
-        nachvollziehbar bewerten können.
+      <div class="alternativen">
+
+        <article class="alternative">
+          <span class="alternative-label">
+            Bestehendes korrigieren
+          </span>
+
+          <h3>Nacharbeit</h3>
+
+          <p>
+            Das vorhandene Produkt wird bearbeitet,
+            um die geforderte Qualität zu erreichen.
+          </p>
+
+          <div class="alternative-fokus">
+            <span>Im Blick behalten</span>
+            Bearbeitungsaufwand und erneute Prüfung
+          </div>
+        </article>
+
+        <article class="alternative neuproduktion">
+          <span class="alternative-label">
+            Ersatz herstellen
+          </span>
+
+          <h3>Neuproduktion</h3>
+
+          <p>
+            Ein neues, einwandfreies Produkt ersetzt
+            das fehlerhafte Teil.
+          </p>
+
+          <div class="alternative-fokus">
+            <span>Im Blick behalten</span>
+            Material, Fertigung und Kapazitäten
+          </div>
+        </article>
+
+        <article class="alternative entsorgung">
+          <span class="alternative-label">
+            Unbrauchbares aussortieren
+          </span>
+
+          <h3>Entsorgung</h3>
+
+          <p>
+            Nicht verwendbare Produkte werden
+            entsorgt oder einer Verwertung zugeführt.
+          </p>
+
+          <div class="alternative-fokus">
+            <span>Im Blick behalten</span>
+            Entsorgungsaufwand und erforderlicher Ersatz
+          </div>
+        </article>
+
+      </div>
+
+      <p class="vergleich-hinweis">
+        <strong>Zuerst die Zulässigkeit klären:</strong>
+        Nur technisch und qualitativ geeignete Möglichkeiten
+        gehören in den wirtschaftlichen Vergleich.
       </p>
     </section>
 
+    <!-- Geschäftsidee -->
+
+    <section class="idee-bereich">
+      <div>
+        <p class="kleine-ueberschrift">
+          Die Idee hinter KostenCheck
+        </p>
+
+        <h2>
+          Ein Produktfehler ist auch eine Kostenentscheidung.
+        </h2>
+      </div>
+
+      <div class="idee-text">
+        <p>
+          Bei Qualitätsabweichungen zählt mehr als der Materialpreis.
+          Zusätzliche Arbeitszeit, neue Produktionsschritte
+          oder Lieferverzögerungen können die Gesamtkosten verändern.
+        </p>
+
+        <p>
+          Unsere Softwareidee richtet sich an Unternehmen,
+          die solche Entscheidungen auf einer gemeinsamen
+          Informationsgrundlage treffen möchten.
+          Produktion, Qualitätsmanagement und Controlling
+          sollen die wirtschaftlichen Auswirkungen
+          nachvollziehbar bewerten können.
+        </p>
+      </div>
+    </section>
+
+    <!-- Vorteile -->
+
     <section class="hell">
-      <p class="kleine-ueberschrift">Der Mehrwert</p>
+      <p class="kleine-ueberschrift">
+        Der Mehrwert
+      </p>
 
       <h2>Weniger Unklarheit. Mehr Überblick.</h2>
 
       <div class="karten">
+
         <article class="karte">
           <h3>Kosten zusammenführen</h3>
+
           <p>
             Relevante Aufwände gemeinsam betrachten,
             statt einzelne Kostenbestandteile
@@ -396,6 +618,7 @@
 
         <article class="karte">
           <h3>Bewertungen nachvollziehen</h3>
+
           <p>
             Erfasste Angaben und Annahmen
             als verständliche Grundlage
@@ -405,24 +628,29 @@
 
         <article class="karte">
           <h3>Abstimmungen erleichtern</h3>
+
           <p>
             Fachbereiche bei der gemeinsamen
             Beurteilung eines Falls unterstützen.
             Die Entscheidung bleibt bei den Fachpersonen.
           </p>
         </article>
+
       </div>
     </section>
 
+    <!-- Kontaktverweis -->
+
     <section class="kontaktbereich">
-      <p class="kleine-ueberschrift">Im Austausch bleiben</p>
+      <p class="kleine-ueberschrift">
+        Im Austausch bleiben
+      </p>
 
       <h2>Fragen zu KostenCheck?</h2>
 
-      <p class="beschreibung">
-        Joudy Baravi und Jodi Esmaeil sind
-        Ihre Ansprechpartnerinnen.
-        Schreiben Sie uns eine Nachricht
+      <p>
+        Sie möchten mehr erfahren oder einen Anwendungsfall
+        besprechen? Schreiben Sie unserem Team eine Nachricht
         oder vereinbaren Sie einen Termin.
       </p>
 
@@ -433,10 +661,11 @@
 
   </main>
 
+  <!-- Footer ohne Namen -->
+
   <footer>
     <strong>KostenCheck</strong>
     <p>Klar vergleichen. Fundiert entscheiden.</p>
-    <p>Joudy Baravi & Jodi Esmaeil</p>
   </footer>
 
 </body>
