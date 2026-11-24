@@ -15,7 +15,7 @@
   <meta name="theme-color" content="#122d29">
 
   <style>
-    /* Grundgestaltung */
+   
 
     * {
       box-sizing: border-box;
@@ -90,7 +90,7 @@
       text-transform: uppercase;
     }
 
-    /* Einheitliche Navigation */
+   
 
     .seitenkopf {
       background: white;
@@ -139,8 +139,7 @@
       border-bottom-color: #122d29;
     }
 
-    /* Einheitlicher oberer Bereich ohne Bild */
-
+    
     .titelbereich {
       min-height: 570px;
       display: flex;
@@ -166,7 +165,7 @@
       color: #e0ebe3;
     }
 
-    /* Kontaktbereich */
+   
 
     .kontaktbereich {
       padding: 85px 0;
@@ -179,7 +178,7 @@
       align-items: start;
     }
 
-    /* Bild neben dem Formular */
+    
 
     .bildrahmen {
       position: relative;
@@ -215,7 +214,7 @@
       color: #53675e;
     }
 
-    /* Ansprechpartnerinnen */
+    
 
     .teamtitel {
       margin-bottom: 20px;
@@ -266,7 +265,7 @@
       color: #d6f66f;
     }
 
-    /* Formular */
+  
 
     .formularbox {
       padding: 35px;
@@ -353,7 +352,7 @@
       overflow-wrap: anywhere;
     }
 
-    /* Eigener großer Kalenderbereich */
+    
 
     .terminbereich {
       padding: 75px 0 85px;
@@ -431,7 +430,7 @@
       text-underline-offset: 4px;
     }
 
-    /* Footer ohne Namen */
+    
 
     footer {
       padding: 28px 0;
@@ -452,7 +451,7 @@
       color: #53675e;
     }
 
-    /* Tablet */
+    
 
     @media (max-width: 950px) {
       .kontaktaufteilung {
@@ -465,7 +464,7 @@
       }
     }
 
-    /* Handy */
+    
 
     @media (max-width: 700px) {
       .kopfleiste {
@@ -532,8 +531,7 @@
 
 <body>
 
-  <!-- Einheitlicher Kopfbereich -->
-
+  
   <header class="seitenkopf">
     <div class="container kopfleiste">
 
@@ -553,8 +551,7 @@
 
   <main>
 
-    <!-- Einheitlicher Titelbereich ohne Bild -->
-
+    
     <section class="titelbereich">
       <div class="container">
         <div class="titeltext">
@@ -577,7 +574,7 @@
       </div>
     </section>
 
-    <!-- Bild, Ansprechpartnerinnen und Formular -->
+   
 
     <section class="kontaktbereich">
       <div class="container kontaktaufteilung">
@@ -749,7 +746,7 @@
       </div>
     </section>
 
-    <!-- Eigenständiger Kalenderbereich -->
+    
 
     <section class="terminbereich">
       <div class="container">
@@ -817,11 +814,7 @@
   </footer>
 
   <script>
-    /*
-      HIER EURE ECHTEN ANGABEN EINTRAGEN.
-
-      Die Angaben gehören zwischen die Anführungszeichen.
-    */
+   
 
     const kontakt = {
       joudyEmail: "joudybaravi@gmail.com",
@@ -829,7 +822,7 @@
       calendlyLink: "https://calendly.com/joudybaravi/30min"
     };
 
-    /* Ansprechpartnerinnen */
+    
 
     function gueltigeEmail(adresse) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(adresse);
@@ -862,7 +855,7 @@
     direktlinkEinrichten("joudyDirekt", personen.joudy);
     direktlinkEinrichten("jodiDirekt", personen.jodi);
 
-    /* E-Mail aus dem Formular vorbereiten */
+    
 
     const formular = document.getElementById("kontaktformular");
     const status = document.getElementById("formularStatus");
@@ -943,7 +936,7 @@
       window.location.href = mailto;
     });
 
-    /* Calendly einbetten */
+   
 
     function kalenderEinrichten() {
       let kalenderUrl;
